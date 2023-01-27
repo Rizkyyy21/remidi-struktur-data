@@ -2,7 +2,6 @@
 
 using namespace std;
 
-// struct Node yang digunakan untuk membuat tree
 struct Node
 {
     int data;
@@ -10,7 +9,6 @@ struct Node
     Node *right;
 };
 
-// fungsi untuk membuat node baru
 Node *newNode(int data)
 {
     Node *node = new Node();
@@ -20,10 +18,8 @@ Node *newNode(int data)
     return node;
 }
 
-// fungsi rekursif untuk menampilkan tree secara pre-order
 void preOrder(Node *root)
 {
-    // jika root adalah null, keluar dari fungsi
     if (root == nullptr)
     {
         return;
@@ -33,10 +29,8 @@ void preOrder(Node *root)
     preOrder(root->right);
 }
 
-// fungsi rekursif untuk menampilkan tree secara in-order
 void inOrder(Node *root)
 {
-    // jika root adalah null, keluar dari fungsi
     if (root == nullptr)
     {
         return;
@@ -46,10 +40,8 @@ void inOrder(Node *root)
     inOrder(root->right);
 }
 
-// fungsi rekursif untuk menampilkan tree secara post-order
 void postOrder(Node *root)
 {
-    // jika root adalah null, keluar dari fungsi
     if (root == nullptr)
     {
         return;
@@ -61,7 +53,6 @@ void postOrder(Node *root)
 
 int main()
 {
-    // membuat tree dan memasukkan data-data
     Node *root = newNode(21);
     root->left = newNode(13);
     root->right = newNode(36);
@@ -74,17 +65,14 @@ int main()
     root->left->right->left = newNode(18);
     root->right->right->right = newNode(4);
 
-    // menampilkan tree secara pre-order
     cout << "Pre-order traversal: ";
     preOrder(root);
     cout << endl;
 
-    // menampilkan tree secara post-order
     cout << "In-order traversal: ";
     inOrder(root);
     cout << endl;
 
-    // menampilkan tree secara in-order
     cout << "Post-order traversal: ";
     postOrder(root);
     cout << endl;
